@@ -2,6 +2,10 @@ INSERT INTO roles (name) VALUES ('ADMIN'), ('USER');
 
 INSERT INTO categories (name) VALUES ('ACTION'), ('ADVENTURE'), ('COMEDY'), ('DRAMA'), ('CRIME'), ('ROMANCE'), ('SCIFI'), ('THRILLER');
 
+INSERT INTO users (firstname, lastname, email, password) VALUES ('Admin', 'User', 'admin@example.com','$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW');
+
+-- Link the user to the admin role in the junction table
+INSERT INTO users_roles (user_id, role_id) SELECT u.id, r.id FROM users u, roles r WHERE u.email = 'admin@example.com' AND r.name = 'ADMIN';
 -- Insert movies
 INSERT INTO movies (name, movie_synopsis, year_of_release, created_at) VALUES ('The Shawshank Redemption', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', 1994, CURRENT_TIMESTAMP);
 

@@ -69,7 +69,6 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-        log.info("S");
         Authentication authentication =
                 authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(
@@ -77,13 +76,10 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
                                 request.getPassword()
                         )
                 );
-        log.info("SS");
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        log.info("SS2");
         String token = jwtService.generateToken(authentication);
 
-        log.info("SS3");
         return AuthenticationResponse.builder()
                 .token(token)
                 .build();
