@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: movie-catalog
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+# security
+jwt:
+  secret: ${SECRET_KEY:a029a7a94ea6e02ee3e01c020f14e8c589ef13cff909818f69e254ffa922f916277e6c88817d87f5e1a315faf0617442bdf903477902616f8bd5028496bbcf8e47df0544b49e65bf800992c2ed1222ae9f48b9a665216d212357533ee54a77d6edacb4a8b566b56ec092311249e583ca31ca2c82a5a249b18f78bc0364899fc5ec2d95ce8b469b88cda6d3a0ff4be338f9a87d72aded7f367f264babc2382e5d113e7ed19fc661cfc38ec4f6e5f19386ec1d91fc9ae509533d4aad78a28f7332f1a0e557ee5187b5f13c81df5258ec33e3b43fb68bd04f0285e0ed387349955a01fd244a4665e8ba65c67334968ed2311c27c881645a33c14031a8ea18cfc616}
+  expiration: ${EXPIRATION_TIME:1200}
