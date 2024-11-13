@@ -2,10 +2,6 @@ INSERT INTO roles (name) VALUES ('ADMIN'), ('USER');
 
 INSERT INTO categories (name) VALUES ('ACTION'), ('ADVENTURE'), ('COMEDY'), ('DRAMA'), ('CRIME'), ('ROMANCE'), ('SCIFI'), ('THRILLER');
 
-INSERT INTO users (firstname, lastname, password, email) VALUES ('admin','admin' '$2a$12$DUd1T/d9.q./NjtJlEYnGu5.Pdd7sOBatylzpCAlRN6azo6LTzzNm', 'admin@gmail.com');
-
-INSERT  INTO users_roles (user_id, role_id) SELECT u.id, r.id FROM users u, roles r WHERE u.firstname = 'admin' AND r.name = 'ADMIN';
-
 -- Insert movies
 INSERT INTO movies (name, movie_synopsis, year_of_release, created_at) VALUES ('The Shawshank Redemption', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', 1994, CURRENT_TIMESTAMP);
 
